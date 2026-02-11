@@ -21,7 +21,22 @@ A web scraper that extracts job listings from Indeed Canada and generates HTML t
 
 1. Clone or download this repository
 
-2. Install dependencies:
+2. Create a virtual environment:
+```bash
+python -m venv venv
+```
+
+3. Activate the virtual environment:
+   - On Windows:
+   ```bash
+   venv\Scripts\activate
+   ```
+   - On macOS/Linux:
+   ```bash
+   source venv/bin/activate
+   ```
+
+4. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
@@ -30,6 +45,7 @@ pip install -r requirements.txt
 
 Run the scraper with a URL:
 
+Always add <b>'&l=&from=searchOnHP&l=&from=searchOnHP'</b> in the trail of the url to avoid Cloudflare issues
 ```bash
 python selenium/main.py --url "https://ca.indeed.com/jobs?q=python+software+developer&l=&from=searchOnHP" --out output/selenium/ --db output/selenium/jobs.db
 ```
@@ -48,10 +64,16 @@ The script generates:
 2. **jobs.html** - Interactive HTML table with clickable job links
 3. **jobs.db** - SQLite database containing job records
 
-## Example
+## Keyword Tests
+
+- Python Software Developer
 
 ```bash
-python selenium/main.py --url "https://ca.indeed.com/jobs?q=python+software+developer&l=&from=searchOnHPhttps://ca.indeed.com/jobs?q=python+software+developer&l=&from=searchOnHP" --out ./results/ --db ./results/jobs.db
+python selenium/main.py --url "https://ca.indeed.com/jobs?q=python+software+developer&l=&from=searchOnHP" --out ./results/ --db ./results/jobs.db
+```
+- Data Mining Engineer
+```bash
+python selenium/main.py --url "https://ca.indeed.com/jobs?q=data+mining+engineer&l=&from=searchOnHP" --out output/selenium/ --db output/selenium/jobs.db   
 ```
 
 This will:
@@ -73,9 +95,4 @@ This will:
 
 ![Job Json File](output/selenium/screenshots/jobs-json.png)
 
-## Notes
-
-- The scraper uses a 6-second delay when loading the initial page to ensure content loads
-- Each job detail fetch has a 10-second timeout
-- HTML table can be opened directly in any web browser
 
