@@ -85,7 +85,7 @@ def save_jobs_to_sqlite(results, db_name='jobs.db'):
     conn.close()
    
 
-def process_job_urls_concurrent(job_urls, headless=False, max_workers=2):
+def process_job_urls_concurrent(job_urls, headless=False, max_workers=3):
     """Process job URLs concurrently to fetch job details"""
     results = []
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
@@ -234,7 +234,7 @@ def main():
         soup = BeautifulSoup(driver.page_source, 'html.parser')
         jobs = scrape_jobs_from_soup(soup)
         print(f"Found {len(jobs)} job URLs")
-        results = process_job_urls_concurrent(jobs, max_workers=2, headless=False)
+        results = process_job_urls_concurrent(jobs, max_workers=3, headless=False)
         
         # Save results to output directory as JSON
         output_file = os.path.join(args.out, 'jobs.json')
