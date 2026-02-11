@@ -1,4 +1,4 @@
-# Job Scraper
+# Indeed Canada Job Scraper
 
 A web scraper that extracts job listings from Indeed Canada and generates HTML tables with clickable job links.
 
@@ -86,13 +86,13 @@ This will:
 
 ### HTML Report
 
-![Job Listings Table](output/selenium/screenshots/jobs-screenshot.png)
+![Job Listings Table](output/selenium/screenshots/jobs-html.png)
 
 ### Database
-![Job Database Table](output/selenium/screenshots/jobs-db.png)
+![Job Database Table](output/selenium/screenshots/jobs-db.png?v=1)
 
 ### Json
 
-![Job Json File](output/selenium/screenshots/jobs-json.png)
+![Job Json File](output/selenium/screenshots/jobs-json.png?v=1)
 
 
