@@ -1,4 +1,4 @@
-# Job Scraper
+# Indeed Canada Job Scraper
 
 A web scraper that extracts job listings from Indeed Canada and generates HTML tables with clickable job links.
 
